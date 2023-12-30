@@ -8,6 +8,8 @@ import argparse
 DetectionResult = None
 
 class detect():
+
+
     def __init__(self, video, mode ,model = None,):
         self.video = video
         self.model = model
@@ -21,8 +23,10 @@ class detect():
         self.ObjectDetectorOptions = mp.tasks.vision.ObjectDetectorOptions
         self.VisionRunningMode = mp.tasks.vision.RunningMode
 
+
     def distance_to_camera(self, knownWidth, focalLength, perWidth):
         return (knownWidth * focalLength) / perWidth
+
 
     def pred(self, frame, frame_ts):# model path
         # Creating base config for loading Model\
@@ -48,6 +52,7 @@ class detect():
     # for drawing bounding box
     def print_result(result: DetectionResult, output_image: mp.Image, timestamp_ms: int):
             print('detection result: {}'.format(result))
+
 
     def visualize(
         self,
@@ -101,6 +106,7 @@ class detect():
         
         return image #returns the frame
 
+
     def run(self):
         skip_factor = 2
         count = 0
@@ -137,8 +143,6 @@ class detect():
                         break
             else:
                 break
-
-
 
 
 def opt():
